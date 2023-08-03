@@ -23,15 +23,24 @@ void GameMap::Draw()
     }
 }
 
-void GameMap::SetPlayerCell(int PlayerX, int PlayerY)
+bool GameMap::SetPlayerCell(int PlayerX, int PlayerY)
 {
-    if(PlayerCell != NULL)
+    if(cells[PlayerY][PlayerX].IsBlocked() == false)
     {
-        PlayerCell->id=0;
+        if(PlayerCell != NULL)
+        {
+            PlayerCell->id=' ';
+        }
+        PlayerCell = &cells[PlayerY][PlayerX];
+        PlayerCell->id = '3';
+
+        return true;
     }
-    PlayerCell = &cells[PlayerY][PlayerX];
-    PlayerCell->id = '3';
-    
+    else
+    {
+        return false;
+    }
+
     //cout << "Player Coords: " << PlayerX << "," << PlayerY << endl;
 }
 
@@ -58,16 +67,14 @@ void GameMap::LoadMapFromFile()
             for(int p=0;p<line.length(); p++)
             {
                 if(line[p]=='0')
-                {
-                    cells[row][p].id = 0;
-                }
+                    cells[row][p].id = ' ';
                 else{
                     cells[row][p].id = line[p];
                 }
             }
             row++;
         }
-    } 
+    }
     else{
         cout << "FATAL ERROR: Map File Could not be loaded" << endl;
     }

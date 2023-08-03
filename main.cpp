@@ -17,10 +17,16 @@ int main()
         Hero.CallInput();
 
         //Updating info Player to Map
-        Map.SetPlayerCell(Hero.x,Hero.y);
-
-        //Here we draw the map
-        Map.Draw();
+        if(Map.SetPlayerCell(Hero.x,Hero.y))
+        {
+            //Here we draw the map
+            Map.Draw();
+        }
+        else
+        {
+            Hero.ResetToSafePosition();
+            Map.Draw();
+        }
     }
 
     return 0;

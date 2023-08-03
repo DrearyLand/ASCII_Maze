@@ -15,6 +15,11 @@ int main()
     {
         //Loop of the Game
         Hero.CallInput();
+
+        //Updating info Player to Map
+        Map.SetPlayerCell(Hero.x,Hero.y);
+
+        //Here we draw the map
         Map.Draw();
     }
 

@@ -6,7 +6,7 @@ using namespace std;
 
 GameMap::GameMap()
 {
-    //ctor
+    PlayerCell = NULL;
 }
 
 void GameMap::Draw()
@@ -21,4 +21,14 @@ void GameMap::Draw()
     }
 }
 
-void 
+void GameMap::SetPlayerCell(int PlayerX, int PlayerY)
+{
+    if(PlayerCell != NULL)
+    {
+        PlayerCell->id=0;
+    }
+    PlayerCell = &cells[PlayerX][PlayerY];
+    PlayerCell->id = 3;
+    
+    //cout << "Player Coords: " << PlayerX << "," << PlayerY << endl;
+}

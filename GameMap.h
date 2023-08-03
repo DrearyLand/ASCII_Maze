@@ -8,10 +8,13 @@ class GameMap
     public:
         GameMap();
 
+        MapCell* PlayerCell;
         MapCell cells[15][10];
 
         void Draw();
-        void SetPlayerCell(int PlayerX,int PlayerY)
+
+        //Function that obtains player coords and updates the map
+        void SetPlayerCell(int PlayerX,int PlayerY);
 
     protected:
 

@@ -1,5 +1,6 @@
 #include "GameMap.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -7,6 +8,7 @@ using namespace std;
 GameMap::GameMap()
 {
     PlayerCell = NULL;
+    LoadMapFromFile();
 }
 
 void GameMap::Draw()
@@ -27,8 +29,31 @@ void GameMap::SetPlayerCell(int PlayerX, int PlayerY)
     {
         PlayerCell->id=0;
     }
-    PlayerCell = &cells[PlayerX][PlayerY];
+    PlayerCell = &cells[PlayerY][PlayerX];
     PlayerCell->id = 3;
     
     //cout << "Player Coords: " << PlayerX << "," << PlayerY << endl;
+}
+
+void GameMap::LoadMapFromFile()
+{
+    // ofstream FileCreated("Map.txt");
+
+    // if(FileCreated.is_open())
+    // {
+
+    // } else {
+    //     cout << "FATAL ERROR: Map file could not be created" << endl;
+    // }
+
+
+    string line;
+    ifstream MyFile("Map.txt");
+
+    if(MyFile.is_open())
+    {
+
+    } else{
+        cout << "FATAL ERROR: Map File Could not be loaded" << endl;
+    }
 }

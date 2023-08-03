@@ -16,21 +16,16 @@ void Player::CallInput()
     switch(UserInput)
     {
     case 'w':
-        y+=1;
-        cout << "El jugador se mueve arriba" << endl;
+        y-=1;
         break;
     case 's':
-        y-=1;
-        cout << "El jugador se mueve abajo" << endl;
+        y+=1;
         break;
     case 'd':
         x+=1;
-        cout << "El jugador se mueve derecha" << endl;
         break;
     case 'a':
         x-=1;
-        cout << "El jugador se mueve izquierda" << endl;
         break;
     }
-    cout << "Mi jugardor eta en las coords: "<< x << "," << y << endl;
 }

@@ -17,6 +17,7 @@ class GameMap
         void SetPlayerCell(int PlayerX,int PlayerY);
 
     protected:
+        void LoadMapFromFile();
 
     private:
 };

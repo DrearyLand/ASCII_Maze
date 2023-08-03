@@ -30,30 +30,45 @@ void GameMap::SetPlayerCell(int PlayerX, int PlayerY)
         PlayerCell->id=0;
     }
     PlayerCell = &cells[PlayerY][PlayerX];
-    PlayerCell->id = 3;
+    PlayerCell->id = '3';
     
     //cout << "Player Coords: " << PlayerX << "," << PlayerY << endl;
 }
 
 void GameMap::LoadMapFromFile()
 {
-    // ofstream FileCreated("Map.txt");
+    /*ofstream FileCreated("Map.txt");
 
-    // if(FileCreated.is_open())
-    // {
+    if(FileCreated.is_open())
+    {
 
-    // } else {
-    //     cout << "FATAL ERROR: Map file could not be created" << endl;
-    // }
+    } else {
+        cout << "FATAL ERROR: Map file could not be created" << endl;
+    }*/
 
 
     string line;
+    int row = 0;
     ifstream MyFile("Map.txt");
 
     if(MyFile.is_open())
     {
-
-    } else{
+        while(getline(MyFile, line))
+        {
+            for(int p=0;p<line.length(); p++)
+            {
+                if(line[p]=='0')
+                {
+                    cells[row][p].id = 0;
+                }
+                else{
+                    cells[row][p].id = line[p];
+                }
+            }
+            row++;
+        }
+    } 
+    else{
         cout << "FATAL ERROR: Map File Could not be loaded" << endl;
     }
 }

@@ -11,6 +11,7 @@ class GameMap
         MapCell* PlayerCell;
         MapCell cells[15][10];
 
+        void DrawIntro();
         void Draw();
 
         //Function that obtains player coords and updates the map

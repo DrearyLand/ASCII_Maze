@@ -44,6 +44,27 @@ bool GameMap::SetPlayerCell(int PlayerX, int PlayerY)
     //cout << "Player Coords: " << PlayerX << "," << PlayerY << endl;
 }
 
+void GameMap::DrawIntro()
+{
+    
+    string line;
+    int row = 0;
+    ifstream MyFile("Intro.txt");
+
+    if(MyFile.is_open())
+    {
+        while(getline(MyFile, line))
+        {
+            cout << line << endl;
+        }
+
+        cin >> line;
+    }
+    else{
+        cout << "FATAL ERROR: INTRO COULD NOT BE LOADED" << endl;
+    }
+}
+
 void GameMap::LoadMapFromFile()
 {
     /*ofstream FileCreated("Map.txt");

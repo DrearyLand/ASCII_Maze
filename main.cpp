@@ -10,6 +10,8 @@ int main()
     GameMap Map;
     Player Hero;
 
+    Map.DrawIntro();
+
     cout << "Inicia el juego" << endl;
     while(isGameOver == false)
     {
